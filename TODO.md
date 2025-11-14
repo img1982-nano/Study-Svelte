@@ -9,6 +9,6 @@
 - ~~問題の採点がおかしい(例:1+2=3なのに不正解と言われる)~~
 - ポイント機能
 # その他
-- Githubにあげて、バックアップ兼他の開発環境でも作業できるようにする
+- ~~Githubにあげて、バックアップ兼他の開発環境でも作業できるようにする~~
 # Error
 - ~~[plugin:@tailwindcss/vite:generate:serve] Can't resolve 'daisyui" @import "tw-animate-css' in '/home/azilamo/開発フォルダ/Study-Svelte/src'~~←ちなみになんで治ったかはわからない
