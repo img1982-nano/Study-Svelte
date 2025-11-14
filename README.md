@@ -5,6 +5,7 @@ Svelte学習の際に作成した、Aziquizの改良版です。
 AIを使用して、ユーザーの回答と問題分から解説を生成します。  
 ポイント機能で、勉強の成果をデータ化(予定)  
 (ほぼほぼ未実装)  
+TODO:https://github.com/img1982-nano/Study-Svelte/blob/main/TODO.md
 ## 技術スタック / Tech Stack
 Framework:Svelte
 AI:GPT-OSS(OpenRouter)  
