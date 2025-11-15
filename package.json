@@ -41,6 +41,7 @@
     "class-variance-authority": "^0.7.1",
     "daisyui": "^5.4.5",
     "firebase": "^12.4.0",
+    "flowbite-svelte-icons": "^3.0.0",
     "flyonui": "^2.4.1"
   }
 }
