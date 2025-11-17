@@ -9,7 +9,7 @@ TODO:https://github.com/img1982-nano/Study-Svelte/blob/main/TODO.md
 ## 技術スタック / Tech Stack
 Framework:Svelte
 AI:GPT-OSS(OpenRouter)  
-UI:(undecided)  
+UI:flowbite-svelte+daisyUI(仮決定)  
 DB:Supabase  
 ## 濃厚豚骨豚無双
 こちらが　濃厚とんこつ豚無双さんの  
