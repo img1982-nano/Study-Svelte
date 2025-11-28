@@ -1,18 +1,18 @@
 <script lang="ts">
     import { ai_question } from "$lib/ai_question.js";
     import { pageOpen } from "$lib/pageOpen";
-    import { Button, Modal, P } from "flowbite-svelte";
-
+    import { Button, Modal, P, FloatingLabelInput } from "flowbite-svelte";
     let { data } = $props();
     let explain = $state();
     let check_input = $state();
     let do_ai_gen = $state(false);
     let ready_check = $state(false);
-    let user_input = $state();
+    let user_input: any = $state();
     let check_toggle;
     let defaultModal = $state(false);
     const next = Number(data.slug) + 1;
     const back = Number(data.slug) - 1;
+    let point: number = $state(0);
 
     async function check() {
         console.log("実行されたで(check関数)");
@@ -28,6 +28,7 @@
             );
             if (user_input === data.Mondai.answer) {
                 check_input = true;
+                data.edit(point);
                 confetti({
                     particleCount: 100,
                 });
@@ -45,8 +46,17 @@
     }
 </script>
 
-<h1>問題:{data.Mondai.problem}</h1>
-<input placeholder="回答を入力" bind:value={user_input} />
+<h1 class="text-2xl font-bold">問題:{data.Mondai.problem}</h1>
+<div class="mt-2 max-w-sm">
+    <FloatingLabelInput
+        clearable
+        variant="outlined"
+        id="clearable_outlined"
+        name="clearable_outlined"
+        type="text"
+        bind:value={user_input}>回答を入力</FloatingLabelInput
+    >
+</div>
 <Button onclick={() => check()}>採点</Button>
 {#if ready_check === true}
     {#if do_ai_gen === true}

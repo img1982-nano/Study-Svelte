@@ -1,30 +1,28 @@
-<script lang="ts">
+<script>
+    import VantaClouds from "$lib/VantaCloud.svelte";
+    import { Button } from "flowbite-svelte";
     import { pageOpen } from "$lib/pageOpen";
-    import { Card, Button, Toggle } from "flowbite-svelte";
-    import { ArrowRightOutline } from "flowbite-svelte-icons";
-
-    let vCard = false;
 </script>
 
-<div class="space-y-4">
-    <Card
-        img="https://www.secom-sanin.co.jp/images/original/20180725115339927bd176c24.jpeg"
-        reverse={vCard}
+<svelte:head>
+    <title>Aziquiz</title>
+</svelte:head>
+<VantaClouds options={{ speed: 1.5, color: 0xcccccc }}>
+    <div
+        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; z-index: 10;"
     >
-        <div class="m-6">
-            <h5
-                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-                小学１年生算数
-            </h5>
-            <p
-                class="mb-3 leading-tight font-normal text-gray-700 dark:text-gray-400"
-            >
-                基礎中の基礎です
+        <div>
+            <h1 class="text-5xl font-bold text-amber-500 text-shadow-lg">
+                すべての人に、勉学を
+            </h1>
+            <p class="font-bold text-shadow-lg">
+                Aziquizは、すべての問題を無料で挑戦することができます
             </p>
-            <Button class="w-40" onclick={() => pageOpen(1)}>
-                学習を開始 <ArrowRightOutline class="ms-2 h-6 w-6 text-white" />
-            </Button>
+            <div class="flex justify-center">
+                <Button onclick={() => pageOpen("/main")} class="ml-[-10]"
+                    >はじめる</Button
+                >
+            </div>
         </div>
-    </Card>
-</div>
+    </div>
+</VantaClouds>
