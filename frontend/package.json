@@ -38,6 +38,7 @@
     "@langchain/openai": "^1.0.0",
     "@supabase/supabase-js": "^2.78.0",
     "@tailwindcss/cli": "^4.1.16",
+    "axios": "^1.13.2",
     "class-variance-authority": "^0.7.1",
     "daisyui": "^5.4.5",
     "flowbite-svelte-blocks": "^2.1.0",

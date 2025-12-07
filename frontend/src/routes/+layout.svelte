@@ -16,18 +16,21 @@
     } from "flowbite-svelte";
     import { on } from "svelte/events";
     import { onMount } from "svelte";
+    let { data, children } = $props();
     let on_main = $state(false);
-    let { data, children }: { data: LayoutData; children?: any } = $props();
     let AccountName = $state("Notfound");
     let AccountEmail = $state("Notfound");
     onMount(() => {
         const path = location.pathname.slice(1);
-        if (path === "/main") {
+        if (path === "main") {
             on_main = true;
         } else if (!isNaN(Number(path))) {
             on_main = true;
+        } else {
+            console.log("指定ページ以外、まだはバグです");
         }
     });
+    console.log(`+layout.svelte側のデバック:`);
 </script>
 
 <svelte:head>

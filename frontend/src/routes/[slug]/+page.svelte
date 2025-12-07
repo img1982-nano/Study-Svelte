@@ -10,43 +10,52 @@
     let user_input: any = $state();
     let check_toggle;
     let defaultModal = $state(false);
+    let point: number = $state(0);
+    let count = 0;
     const next = Number(data.slug) + 1;
     const back = Number(data.slug) - 1;
-    let point: number = $state(0);
-
     async function check() {
-        console.log("実行されたで(check関数)");
-        ready_check = true;
-        do_check();
+        try {
+            console.log("実行されたで(check関数)");
+            ready_check = true;
+            await do_check();
+        } catch (e) {
+            console.error(e);
+        }
     }
     async function do_check() {
-        do_ai_gen = true;
-        if (ready_check === true) {
-            explain = await ai_question(
-                "問題と答えを参照した上で、解説を30文字以内で簡潔に生成してください",
-                data.Mondai.problem + `ユーザーの回答${user_input}`,
-            );
-            if (user_input === data.Mondai.answer) {
-                check_input = true;
-                data.edit(point);
-                confetti({
-                    particleCount: 100,
-                });
-            } else {
-                check_input = false;
+        try {
+            do_ai_gen = true;
+            if (ready_check === true) {
+                explain = await ai_question(
+                    "問題と答えを参照した上で、解説を30文字以内で簡潔に生成してください",
+                    data.Mondai.problem + `ユーザーの回答${user_input}`,
+                );
+                if (user_input === data.Mondai.answer) {
+                    check_input = true;
+                    await confetti({
+                        particleCount: 100,
+                    });
+                } else {
+                    check_input = false;
+                }
+                console.log(explain, check_input);
+                do_ai_gen = false;
+                defaultModal = true;
+                return { explain, check_input };
             }
             console.log(explain, check_input);
             do_ai_gen = false;
-            defaultModal = true;
-            return { explain, check_input };
+            return { explain: "", check_input: "" };
+        } catch (e) {
+            console.error(e);
         }
-        console.log(explain, check_input);
-        do_ai_gen = false;
-        return { explain: "", check_input: "" };
     }
 </script>
 
-<h1 class="text-2xl font-bold">問題:{data.Mondai.problem}</h1>
+<h1 class="text-2xl font-bold">
+    問題:{data.Mondai.problem}
+</h1>
 <div class="mt-2 max-w-sm">
     <FloatingLabelInput
         clearable

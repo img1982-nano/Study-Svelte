@@ -1,7 +1,6 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { SystemMessage, HumanMessage } from "@langchain/core/messages";
 import { PUBLIC_OPEN_ROUTER_API } from "$env/static/public";
-
 const chat = new ChatOpenAI({
   model: "gpt-4o-mini",
   temperature: 0.8,
