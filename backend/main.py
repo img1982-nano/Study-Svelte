@@ -5,8 +5,8 @@ from fastapi import FastAPI
 from supabase import Client, create_client
 
 app = FastAPI()
-url: str = "https://tgijyfhrlpovvtkpocls.supabase.co"
-key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRnaWp5ZmhybHBvdnZ0a3BvY2xzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3MDY3NTUsImV4cCI6MjA3NzI4Mjc1NX0.lihzFgM7aV5K8WkwZ0efiCQOn__eZs8MVCC6nnpyyU0"
+url = os.environ["PUBLIC_SUPABASE_URL"]
+key = os.environ["PUBLIC_SUPABASE_ANON_KEY"]
 supabase: Client = create_client(url, key)
 
 
