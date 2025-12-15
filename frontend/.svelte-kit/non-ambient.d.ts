@@ -27,7 +27,7 @@ export {};
 
 declare module "$app/types" {
 	export interface AppTypes {
-		RouteId(): "/" | "/auth" | "/auth/callback" | "/main" | "/sign_in" | "/sign_up" | "/sign_up/success" | "/[slug]";
+		RouteId(): "/" | "/auth" | "/auth/callback" | "/main" | "/sign_in" | "/sign_up" | "/sign_up/success" | "/tos" | "/[slug]";
 		RouteParams(): {
 			"/[slug]": { slug: string }
 		};
@@ -39,9 +39,10 @@ declare module "$app/types" {
 			"/sign_in": Record<string, never>;
 			"/sign_up": Record<string, never>;
 			"/sign_up/success": Record<string, never>;
+			"/tos": Record<string, never>;
 			"/[slug]": { slug: string }
 		};
-		Pathname(): "/" | "/auth" | "/auth/" | "/auth/callback" | "/auth/callback/" | "/main" | "/main/" | "/sign_in" | "/sign_in/" | "/sign_up" | "/sign_up/" | "/sign_up/success" | "/sign_up/success/" | `/${string}` & {} | `/${string}/` & {};
+		Pathname(): "/" | "/auth" | "/auth/" | "/auth/callback" | "/auth/callback/" | "/main" | "/main/" | "/sign_in" | "/sign_in/" | "/sign_up" | "/sign_up/" | "/sign_up/success" | "/sign_up/success/" | "/tos" | "/tos/" | `/${string}` & {} | `/${string}/` & {};
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
 		Asset(): "/robots.txt" | string & {};
 	}

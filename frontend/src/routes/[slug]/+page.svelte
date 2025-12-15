@@ -27,6 +27,7 @@
         try {
             do_ai_gen = true;
             if (ready_check === true) {
+                console.log("採点が開始されました");
                 explain = await ai_question(
                     "問題と答えを参照した上で、解説を30文字以内で簡潔に生成してください",
                     data.Mondai.problem + `ユーザーの回答${user_input}`,

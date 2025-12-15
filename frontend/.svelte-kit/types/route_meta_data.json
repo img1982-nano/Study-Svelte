@@ -19,6 +19,9 @@
 	"/sign_up/success": [
 		"src/routes/+layout.server.ts"
 	],
+	"/tos": [
+		"src/routes/+layout.server.ts"
+	],
 	"/[slug]": [
 		"src/routes/[slug]/+page.server.ts",
 		"src/routes/+layout.server.ts"
