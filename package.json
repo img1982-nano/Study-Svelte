@@ -1,0 +1,11 @@
+{
+  "name": "Gakusyu_monorepo",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "bun --filter '*' dev"
+  }
+}
