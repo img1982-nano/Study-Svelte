@@ -7,10 +7,12 @@ AIを使用して、ユーザーの回答と問題分から解説を生成しま
 (ほぼほぼ未実装)  
 TODO:https://github.com/img1982-nano/Study-Svelte/blob/main/TODO.md
 ## 技術スタック / Tech Stack
-Framework:Svelte
-AI:GPT-OSS(OpenRouter)  
-UI:flowbite-svelte+daisyUI(仮決定)  
-DB:Supabase  
+Frontend:Svelte
+Backend:Elysia
+AI:GPT-OSS(OpenRouter)(Geminiに以降予定) 
+UI:flowbite-svelte(DaisyUIに移行予定)  
+DB:MongoDB Atlas
+FS:Garage
 ## 濃厚豚骨豚無双
 こちらが　濃厚とんこつ豚無双さんの  
 濃厚無双ラーメン　海苔トッピングです  
