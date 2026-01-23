@@ -9,7 +9,8 @@
     "@elysiajs/cors": "^1.4.1",
     "@elysiajs/jwt": "^1.4.0",
     "elysia": "latest",
-    "mongoose": "^9.1.4"
+    "mongoose": "^9.1.4",
+    "tesseract.js": "^7.0.0"
   },
   "devDependencies": {
     "bun-types": "latest"
