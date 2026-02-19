@@ -1,5 +1,4 @@
 <script>
-    import VantaClouds from "$lib/VantaCloud.svelte";
     import { Button } from "flowbite-svelte";
     import { pageOpen } from "$lib/pageOpen";
 </script>
@@ -7,7 +6,7 @@
 <svelte:head>
     <title>Aziquiz</title>
 </svelte:head>
-<VantaClouds options={{ speed: 1.5, color: 0xcccccc }}>
+<div class="w-[2/4] h-screen bg-cover bg-center relative" style="background-image: url('/34191903_m.jpg');">
     <div
         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; z-index: 10;"
     >
@@ -20,9 +19,9 @@
             </p>
             <div class="flex justify-center">
                 <Button onclick={() => pageOpen("/main")} class="ml-[-10]"
-                    >はじめる</Button
+                >はじめる</Button
                 >
             </div>
         </div>
     </div>
-</VantaClouds>
+</div>

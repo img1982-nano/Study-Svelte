@@ -37,7 +37,7 @@ async function image_ocr(image: Blob) {
 app.get("/", () => "FuckYou")
 app.get("/api/db/Mondai", async () => {
   const response = await Mondai.find()
-  console.log(`User connect to /aieu, response to :${response}`)
+  console.log(`User connect to /api/db/Mondai, response to :${response}`)
   return response
 }, {
   query: t.Object({
@@ -55,11 +55,11 @@ app.post("/api/ocr", async ({ body }) => {
     file: t.File({ format: "image/*" })
   })
 })
-app.get("/api/test_2", async ({ query }) => {
+app.get("/api/get", async ({ query }) => {
   //MongoDbから特定のコレクションのデータをすべて取得
   //{url}/api/test_2?collection={データベースのコレクション名}
   const response = await mongo.connection.collection(query.collection).find({}).toArray()
-  console.log(`User connect to test_2 api, response to :${response}`)
+  console.log(`User connect to test_2 api`)
   return response
 }, {
   query: t.Object({

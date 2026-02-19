@@ -1,7 +1,7 @@
 <script lang="ts">
     import "../app.css";
     import favicon from "$lib/assets/favicon.svg";
-    import type { LayoutData } from "./$types";
+    //import type { LayoutData } from "./$types";
     import {
         Navbar,
         NavBrand,
@@ -68,9 +68,9 @@
     </Dropdown>
     <NavUl class="md:ms-auto">
         <NavLi href="/main">学習トップ</NavLi>
-        {#if on_main === true}
+<!--        {#if on_main === true}
             <NavLi>AziP:{data.point[0].point}</NavLi>
-        {/if}
+        {/if} -->
     </NavUl>
 </Navbar>
 {@render children?.()}
