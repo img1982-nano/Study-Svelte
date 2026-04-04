@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import { jwt } from '@elysiajs/jwt'
+import { Codex } from "@openai/codex-sdk";
 
 async function verifyAuth(jwt: any, auth: any, status: any) {
   const token = auth.value
@@ -17,6 +18,8 @@ async function verifyAuth(jwt: any, auth: any, status: any) {
   return verified
 }
 
+const codex = new Codex();
+
 const app =new Elysia()
   .use(
     jwt({
@@ -33,6 +36,29 @@ const app =new Elysia()
   })
   .group("/api", (app) =>
     app
+      .get("/ai/:prompt", async ({ params: { prompt }, jwt, status, cookie: { auth } }) => {
+        try {
+          const user = verifyAuth(jwt, auth, status)
+          if (!user) return
+          
+          console.log(`Prompt:${prompt}`)
+          
+          const thread = codex.startThread();
+          console.log(`Thread: ${thread}`)
+          
+          const result = await thread.run(prompt);
+          console.log(`Result:${result}`)
+          
+          return {
+            message: result.finalResponse,
+            usage: result.usage
+          }
+        } catch (error) {
+          return {
+            error: error.message
+          }
+        }
+      })
       .post('/cookie/add', async ({ jwt, body, status, cookie: { auth } }) => {
         const { id } = body as { id?: string }
         
@@ -53,14 +79,6 @@ const app =new Elysia()
           token: value
         }
       })
-      // コメントアウトした
-      // 理由:別の処理で使うから
-      /*.get("/about", async ({ jwt, status, cookie: { auth } }) => {
-          const user = verifyAuth(jwt, auth, status)
-          
-          if (!user) return
-          
-        })*/
   )
   .listen(3000)
 

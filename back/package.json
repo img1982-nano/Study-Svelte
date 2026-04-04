@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@elysiajs/jwt": "^1.4.1",
+    "@openai/codex-sdk": "^0.118.0",
     "elysia": "latest"
   },
   "devDependencies": {
