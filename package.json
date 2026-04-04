@@ -1,0 +1,8 @@
+{
+  "name": "Gakusyu",
+  "private": true,
+  "scripts": {
+    "dev": "bun --filter '*' dev"
+  },
+  "workspaces": ["front", "back"]
+}
